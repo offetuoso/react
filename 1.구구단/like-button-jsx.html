@@ -11,7 +11,20 @@
 <script type="text/babel">
     'use strict';
 
-    class LikeButton extends React.Component {
+    function LikeButton(){
+        const [liked,setLiked] = React.useState(false);
+        if (liked) {
+            return 'You liked this.';
+        }
+
+        return (
+            <button onClick={() => {setLiked(true)}}>
+                Like
+            </button>
+        );
+    }
+
+    /*class LikeButton extends React.Component {
         constructor(props) {
             super(props);
             this.state = {liked: false};
@@ -28,17 +41,12 @@
                 </button>
             );
         }
-    }
+    }*/
 </script>
 <script type="text/babel">
     //ReactDOM.render(<LikeButton/>, document.querySelector('#root')); //react 17 버전
     ReactDOM.createRoot(document.querySelector('#root')).render(
-        <div>
             <LikeButton/>
-            <LikeButton/>
-            <LikeButton/>
-            <LikeButton/>
-        </div>
     ); //리엑트 18 버전
 </script>
 </body>
